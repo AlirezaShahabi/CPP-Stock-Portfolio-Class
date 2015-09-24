@@ -33,7 +33,7 @@ Portfolio& Portfolio::buy(Stock* ps, int n){
             cash     -= n * (ps->price);
         }else{
             stocks[ps->sid].second += n;
-            num_share-= n;
+            num_share+= n;
             invested += n * (ps->price);
             cash     -= n * (ps->price);
         }
@@ -51,7 +51,6 @@ Portfolio& Portfolio::sell(Stock* ps, int n){
     if ( it == stocks.end()){
         std::cout << "Not in the portfolio!" << std::endl;
     }else{
-        
         if (n > (it->second).second){
             std::cout << "Not enough stock!" << std::endl;
         }else if(n == (it->second).second){
